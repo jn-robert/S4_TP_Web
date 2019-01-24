@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imc</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    <fieldset>
+        <legend>L'indice de masse corporelle</legend>
+        <form>
+            <input type="radio" name="gender" value="male" id="Homme" checked> Homme
+            <input type="radio" name="gender" value="female" id="Femme"> Femme<br>
+            Masse : <br>
+            <input type="text" id="masse"> Kg <err1 id="errMasse"></err1><br>
+            Taille : <br>
+            <input type="text" id="taille"> m <err1 id="errTaille"></err1><br><br>
+            <button type="reset" value="reset" onclick="clearTexte()">Effacer</button>
+            <input type="button" value="Calculer" onclick="calculIMC()" onchange="verifTexteImc()" title="appuyer sur le bouton pour calculer l'IMC"> <br>
+        </form> <br>
+        <div id="resultat">
+        </div>
+    </fieldset>
+</body>
+</html>
