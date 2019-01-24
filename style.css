@@ -1,0 +1,40 @@
+#menu-vertical, #menu-vertical ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+    width: 180px; /* seule ligne rajoutée */
+}
+
+#menu-vertical li {
+    background:#EFEFEF; /* juste pour cacher le texte de la page en-dessous */
+}
+
+#menu-vertical a {
+    text-decoration: none;
+    color: #000;
+}
+
+#menu-vertical ul {
+    position: absolute;
+    left:-999em;
+}
+
+#menu-vertical li:hover ul {
+    top: 18px;
+    left: 180px;
+}
+
+err1 {
+    color: #FF0000;
+    background-color: antiquewhite;
+}
+
+
+ul#main-nav {font-family:helvetica,arial,sans-serif;margin:0;padding:0;float:left;width:100%;font-size:0.9em;}
+ul#main-nav li {margin:0;padding:0;list-style:none;float:left;margin:0;width:9em;}
+ul#main-nav li a {text-decoration:none;display:block;padding:0.6em;color:#0e0e0e;background:#cfcfcf;border-left:2px solid #fff;border-right:2px solid #fff;}
+ul#main-nav li a:hover, ul#main-nav	li a:focus {background:#ece1cf;border-left:2px solid gray;border-right:2px solid gray;}
+ul#main-nav li ul {padding:0;margin:0;display:none;}
+ul#main-nav li:hover ul {display:block;}
+ul#main-nav li ul li {float:none;}
+ul#main-nav li ul li a {font-size:0.9em;}

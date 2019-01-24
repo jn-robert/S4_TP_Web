@@ -7,20 +7,188 @@
     <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("imcShow").style.display = "none";
+        document.getElementById("factoShow").style.display = "none";
+        document.getElementById("fiboShow").style.display = "none";
+        document.getElementById("convShow").style.display = "none";
+        document.getElementById("descShow").style.display = "none";
+        document.getElementById("contShow").style.display = "none";
+        langue('Fr');
+
+        <!-- Menu vertical -->
+        document.getElementById("menu").style.display = "none";
+    }
+</script>
+
+<div id="langue">
+    <a href="#" onclick="langue('Fr')"><img src="Fr.png" height="25" width="35"></a>
+    <a href="#" onclick="langue('En')"><img src="En.jpg" height="25" width="35"></a>
+</div>
+
+<!-- Les différents menus dont le premier est vertical et n'est jamais affiché -->
+<div id="menu">
+    <ul id="menu-vertical">
+        <li><a href="#">Actions</a>
+            <ul>
+                <li><a href="#" onclick="calculIMC()">Calculer</a></li>
+                <li><a href="#" onclick="clearTexte()">Effacer</a></li>
+                <li><a href="#" onclick="window.print()">Imprimer</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Mode</a>
+            <ul>
+                <li><a href="#" onclick="showIMC()">Calculer imc</a></li>
+                <li><a href="#" onclick="showFacto()">Calculer factorielle</a></li>
+                <li><a href="#" onclick="showFibo()">Calculer fibonacci</a></li>
+                <li><a href="#" onclick="showConv()">Convertir</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Aide</a>
+            <ul>
+                <li><a href="#" onclick="showDesc()">Description du site</a></li>
+                <li><a href="#" onclick="showCont()">Nous contacter</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div id="menuFr">
+    <ul id="main-nav">
+        <li><a href="#">Actions</a>
+            <ul>
+                <li><a href="#" onclick="calculIMC()">Calculer</a></li>
+                <li><a href="#" onclick="clearTexte()">Effacer</a></li>
+                <li><a href="#" onclick="window.print()">Imprimer</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Mode</a>
+            <ul>
+                <li><a href="#" onclick="showIMC()">Calculer imc</a></li>
+                <li><a href="#" onclick="showFacto()">Calculer factorielle</a></li>
+                <li><a href="#" onclick="showFibo()">Calculer fibonacci</a></li>
+                <li><a href="#" onclick="showConv()">Convertir</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Aide</a>
+            <ul>
+                <li><a href="#" onclick="showDesc()">Description du site</a></li>
+                <li><a href="#" onclick="showCont()">Nous contacter</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div id="menuEn">
+    <ul id="main-nav">
+        <li><a href="#">Actions</a>
+            <ul>
+                <li><a href="#" onclick="calculIMC()">Calculate</a></li>
+                <li><a href="#" onclick="clearTexte()">Wipe off</a></li>
+                <li><a href="#" onclick="window.print()">Print</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Mode</a>
+            <ul>
+                <li><a href="#" onclick="showIMC()">Calculate bmi</a></li>
+                <li><a href="#" onclick="showFacto()">Calculate factorial</a></li>
+                <li><a href="#" onclick="showFibo()">Calculate fibonacci</a></li>
+                <li><a href="#" onclick="showConv()">Convert</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Help</a>
+            <ul>
+                <li><a href="#" onclick="showDesc()">Site description</a></li>
+                <li><a href="#" onclick="showCont()">Contact us</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<!-- Les différents pages que l'on peut afficher -->
+<div id="imcShow">
     <fieldset>
         <legend>L'indice de masse corporelle</legend>
         <form>
             <input type="radio" name="gender" value="male" id="Homme" checked> Homme
             <input type="radio" name="gender" value="female" id="Femme"> Femme<br>
             Masse : <br>
-            <input type="text" id="masse"> Kg <err1 id="errMasse"></err1><br>
+            <input type="text" id="masse"> Kg
+            <err1 id="errMasse"></err1>
+            <br>
             Taille : <br>
-            <input type="text" id="taille"> m <err1 id="errTaille"></err1><br><br>
+            <input type="text" id="taille"> m
+            <err1 id="errTaille"></err1>
+            <br><br>
             <button type="reset" value="reset" onclick="clearTexte()">Effacer</button>
-            <input type="button" value="Calculer" onclick="calculIMC()" onchange="verifTexteImc()" title="appuyer sur le bouton pour calculer l'IMC"> <br>
-        </form> <br>
+            <input type="button" value="Calculer" onclick="calculIMC()" onchange="verifTexteImc()"
+                   title="appuyer sur le bouton pour calculer l'IMC"> <br>
+        </form>
+        <br>
         <div id="resultat">
         </div>
     </fieldset>
+</div>
+
+<div id="factoShow">
+    <h1>Factorielle</h1>
+</div>
+
+<div id="fiboShow">
+    <h1>Fibonacci</h1>
+</div>
+
+<div id="convShow">
+    <h1>Convertion</h1>
+    <fieldset>
+        <form>
+            Les types de convertion <br>
+            <select name="convertionType" id="conv1" size="3">
+                <option>cm à inch</option>
+                <option>kg à pound</option>
+                <option>km à mile</option>
+                <option>°c à °F</option>
+            </select>
+        </form>
+        <br>
+        <input placeholder="valeur 1"> Cm
+        <button>==></button>
+        <button><==</button>
+        <input placeholder="valeur 2"> Inch
+    </fieldset>
+</div>
+
+<div id="descShow">
+    <h1>Description</h1>
+    <p>
+        La rubrique « description du site » contient des informations sur le contenu du site, la date
+        de la mise à jour et l'administrateur web.
+    </p>
+</div>
+
+<div id="contShow">
+    <h1>Contacter</h1>
+    <div id="after_submit"></div>
+    <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <label class="required" for="name">Your name:</label><br/>
+            <input id="name" class="input" name="name" type="text" value="" size="30"/><br/>
+            <span id="name_validation" class="error_message"></span>
+        </div>
+        <div class="row">
+            <label class="required" for="email">Your email:</label><br/>
+            <input id="email" class="input" name="email" type="text" value="" size="30"/><br/>
+            <span id="email_validation" class="error_message"></span>
+        </div>
+        <div class="row">
+            <label class="required" for="message">Your message:</label><br/>
+            <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br/>
+            <span id="message_validation" class="error_message"></span>
+        </div>
+
+        <input id="submit_button" type="submit" value="Send email"/>
+    </form>
+</div>
 </body>
 </html>
